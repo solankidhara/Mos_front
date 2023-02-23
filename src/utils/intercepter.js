@@ -4,7 +4,7 @@ import { redirect } from "react-router-dom";
 axios.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
-    config.baseURL = "http://abcstock.as.r.appspot.com/api/v1";https://abcstock.as.r.appspot.com
+    config.baseURL = "http://abcstock.as.r.appspot.com/api/v1";
     if (token) {
       config.headers["Authorization"] = "Bearer " + token;
     }
