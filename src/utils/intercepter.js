@@ -4,7 +4,7 @@ import { redirect } from "react-router-dom";
 axios.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
-    config.baseURL = "http://localhost:3000/api/v1";
+    config.baseURL = "http://abcstock.as.r.appspot.com/api/v1";https://abcstock.as.r.appspot.com
     if (token) {
       config.headers["Authorization"] = "Bearer " + token;
     }
@@ -24,7 +24,7 @@ axios.interceptors.response.use(
   function (error) {
     const originalRequest = error.config;
 
-    if (error.response.status === 401 && originalRequest.url === "http://localhost:3000/api/v1/users/token") {
+    if (error.response.status === 401 && originalRequest.url === "http://abcstock.as.r.appspot.com/api/v1/users/token") {
       redirect("/login");
       return Promise.reject(error);
     }
